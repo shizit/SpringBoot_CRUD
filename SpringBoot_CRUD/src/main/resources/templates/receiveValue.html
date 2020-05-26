@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Table Editor</title>
+<link rel="stylesheet" href="css/tablestyles.css"/>
+</head>
+<body>
+	<form name="sendValue" method = "get">
+		<input type="radio" name="tableName" value="tableName"/>tableName<br>
+		<input type="submit" value="get table"/>	
+	<br><br>
+	<input type="submit" value="getProperty" id = "getProperty" class="actionBtn"/><input type="submit" value="select" id = "select" class="actionBtn"/><input type="submit" id="update" value="update" class="actionBtn"/><input type="submit" id="delete" value="delete" class="actionBtn"/><input type="submit" id="insert" value="insert" class="actionBtn"/>
+	<table>
+		<tr>
+			<th>USERID</th>
+			<th>PASSWORD</th>
+		</tr>
+		<tr>
+			<td>default</td>
+			<td>default</td>
+		</tr>
+	</table>
+	</form>
+	<p th:text="${inputText}"></p>
+<script type="text/javascript" src="js/submitDist.js"></script>
+</body>
+</html>
