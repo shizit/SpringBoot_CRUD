@@ -13,12 +13,14 @@
 	<input type="submit" value="getProperty" id = "getProperty" class="actionBtn"/><input type="submit" value="select" id = "select" class="actionBtn"/><input type="submit" id="update" value="update" class="actionBtn"/><input type="submit" id="delete" value="delete" class="actionBtn"/><input type="submit" id="insert" value="insert" class="actionBtn"/>
 	<table>
 		<tr>
-			<th>USERID</th>
-			<th>PASSWORD</th>
+			<th:block th:each="column:${columnMap}">	
+			<th th:text="${column.key}"></th>
+			</th:block>
 		</tr>
-		<tr>
-			<td>default</td>
-			<td>default</td>
+		<tr th:each="resultMap:${resultMapList}">
+			<th:block th:each="result:${resultMap}">	
+				<td th:text="${result.value}"></td>
+			</th:block>
 		</tr>
 	</table>
 	</form>

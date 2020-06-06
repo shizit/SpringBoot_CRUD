@@ -7,5 +7,5 @@ import java.util.Map;
 public interface UserDao {
 	
 	//テーブルデータを取得
-	public List<Map<String, Object>> selectData();
+	public List<Map<String,Object>> selectData();
 }

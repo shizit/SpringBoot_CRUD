@@ -1,5 +1,9 @@
 package com.example.demo;
 
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.demo.component.dao.SelectResultRetForm;
 import com.example.demo.component.dao.UserDao;
 import com.example.demo.component.propertyutil.GetDBProperty;
 
@@ -36,8 +41,17 @@ public class CrudController {
 	@RequestMapping("/select")
 	public String  select(Model model) {
 		
-		userDao.selectData();
+		//テーブルデータを取得
+		List<Map<String, Object>> resultMapList = userDao.selectData();
+		
+		//前画面で入力された文字を追加
 		model.addAttribute("inputText", "select");
+		//取得したテーブルの結果リストを追加
+		//TODO　エラーでデータ取得できなかった場合の対応
+		model.addAttribute("resultMapList", resultMapList);
+		//カラム名表示用にmapを生成
+		model.addAttribute("columnMap", resultMapList.get(0));
+		
 		return "receiveValue";
 	}
 	@RequestMapping("/update")

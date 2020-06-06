@@ -27,7 +27,6 @@ public class ConnectionMySQL {
 		try {
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		this.conn = DriverManager.getConnection(url, user, password);
-		System.out.println(conn);
 		
 		}catch( Exception e) {
 			e.printStackTrace();
